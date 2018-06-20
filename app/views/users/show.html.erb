@@ -5,7 +5,11 @@
 
 <p>
   <% @user.posts.each do |post| %>
-    <%= post.caption %>
+    <%= link_to image_tag(post.image.thumb.url), post %>
+    <p>
+      <em><%= post.caption %></em>
+      <strong>-<%= link_to post.user, post.user %></strong>
+    </p>
   <% end %>
 </p>
 
