@@ -1,16 +1,13 @@
 <p>
-  <strong><%= @user %></strong>
+  <strong><%= @user %>'s Pictures</strong>
 </p>
-
-<p>
-  <% @user.posts.each do |post| %>
-    <%= link_to image_tag(post.image.thumb.url), post %>
-    <p>
-      <em><%= post.caption %></em>
-      <strong>-<%= link_to post.user, post.user %></strong>
-    </p>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', posts_path %>
+</br>
+<div class="columns is-multiline is-gapless">
+    <% @user.posts.each do |post| %>
+      <div class="column is-one-quarter">
+        <div class="image is-4by3">
+          <%= link_to image_tag(post.image.url), post %>
+        </div>
+      </div>
+    <% end %>
+</div>
